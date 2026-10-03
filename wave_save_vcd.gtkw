@@ -1,0 +1,45 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Thu Oct 01 15:10:27 2026
+[*]
+[dumpfile] "D:\Documents\Projekte\chirp_engine\func.vcd"
+[dumpfile_mtime] "Thu Oct 01 05:46:41 2026"
+[dumpfile_size] 2277071
+[savefile] "D:\Documents\Projekte\chirp_engine\wave_save_vcd.gtkw"
+[timestart] 3395
+[size] 1536 824
+[pos] -1 -1
+*-10.000000 8212 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] chirp_engine_top_tb.
+[treeopen] chirp_engine_top_tb.dut.
+[treeopen] chirp_engine_top_tb.dut.i_axi_regs.
+[sst_width] 197
+[signals_width] 246
+[sst_expanded] 1
+[sst_vpaned_height] 232
+@29
+chirp_engine_top_tb.dut.i_chirp_engine.rst
+@28
+chirp_engine_top_tb.dac_clk
+chirp_engine_top_tb.axi_clk
+@8420
+chirp_engine_top_tb.dout[15:0]
+@20000
+-
+@8022
+chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[15:0]
+@20000
+-
+@28
+chirp_engine_top_tb.dut.chirp_start
+chirp_engine_top_tb.dut.chirp_finished
+chirp_engine_top_tb.dut.chirp_started
+chirp_engine_top_tb.dut.ready
+chirp_engine_top_tb.dut.i_axi_regs.i_chirp_reg.ready
+chirp_engine_top_tb.dut.i_axi_regs.axi_rvalid
+@22
+chirp_engine_top_tb.dut.i_axi_regs.axi_awaddr[4:0]
+chirp_engine_top_tb.dut.i_axi_regs.rd_data[31:0]
+chirp_engine_top_tb.dut.s_axi_rdata[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

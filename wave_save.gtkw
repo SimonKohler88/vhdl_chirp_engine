@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri Oct 02 19:19:36 2026
+[*]
+[dumpfile] "D:\Documents\Projekte\chirp_engine\func.ghw"
+[dumpfile_mtime] "Fri Oct 02 19:15:28 2026"
+[dumpfile_size] 532368
+[savefile] "D:\Documents\Projekte\chirp_engine\wave_save.gtkw"
+[timestart] 2953
+[size] 1482 834
+[pos] -1 -1
+*-10.000000 23670 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.chirp_engine_top_tb.
+[treeopen] top.chirp_engine_top_tb.dut.
+[treeopen] top.chirp_engine_top_tb.dut.i_chirp_engine.
+[sst_width] 332
+[signals_width] 263
+[sst_expanded] 1
+[sst_vpaned_height] 458
+@28
+top.chirp_engine_top_tb.axi_clk
+top.chirp_engine_top_tb.dac_clk
+top.chirp_engine_top_tb.dac_rst
+top.chirp_engine_top_tb.axi_resetn
+@8420
+#{top.chirp_engine_top_tb.dout[15:0]} top.chirp_engine_top_tb.dout[15] top.chirp_engine_top_tb.dout[14] top.chirp_engine_top_tb.dout[13] top.chirp_engine_top_tb.dout[12] top.chirp_engine_top_tb.dout[11] top.chirp_engine_top_tb.dout[10] top.chirp_engine_top_tb.dout[9] top.chirp_engine_top_tb.dout[8] top.chirp_engine_top_tb.dout[7] top.chirp_engine_top_tb.dout[6] top.chirp_engine_top_tb.dout[5] top.chirp_engine_top_tb.dout[4] top.chirp_engine_top_tb.dout[3] top.chirp_engine_top_tb.dout[2] top.chirp_engine_top_tb.dout[1] top.chirp_engine_top_tb.dout[0]
+@20000
+-
+@8022
+#{top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[15:0]} top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[15] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[14] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[13] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[12] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[11] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[10] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[9] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[8] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[7] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[6] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[5] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[4] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[3] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[2] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[1] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_acc[0]
+@20000
+-
+@420
+top.chirp_engine_top_tb.dut.i_chirp_engine.fsm_state
+@22
+#{top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[15:0]} top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[15] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[14] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[13] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[12] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[11] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[10] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[9] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[8] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[7] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[6] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[5] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[4] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[3] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[2] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[1] top.chirp_engine_top_tb.dut.i_chirp_engine.start_freq[0]
+@28
+top.chirp_engine_top_tb.dut.i_chirp_engine.do_chirp
+top.chirp_engine_top_tb.dut.i_chirp_engine.direction
+@22
+#{top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[15:0]} top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[15] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[14] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[13] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[12] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[11] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[10] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[9] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[8] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[7] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[6] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[5] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[4] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[3] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[2] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[1] top.chirp_engine_top_tb.dut.i_chirp_engine.freq_step[0]
+#{top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[15:0]} top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[15] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[14] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[13] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[12] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[11] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[10] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[9] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[8] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[7] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[6] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[5] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[4] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[3] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[2] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[1] top.chirp_engine_top_tb.dut.i_chirp_engine.stop_freq[0]
+@28
+top.chirp_engine_top_tb.dut.i_chirp_engine.repeat
+top.chirp_engine_top_tb.dut.i_chirp_engine.ready
+top.chirp_engine_top_tb.dut.i_chirp_engine.chirp_finished
+@22
+#{top.chirp_engine_top_tb.dut.s_axi_rdata[31:0]} top.chirp_engine_top_tb.dut.s_axi_rdata[31] top.chirp_engine_top_tb.dut.s_axi_rdata[30] top.chirp_engine_top_tb.dut.s_axi_rdata[29] top.chirp_engine_top_tb.dut.s_axi_rdata[28] top.chirp_engine_top_tb.dut.s_axi_rdata[27] top.chirp_engine_top_tb.dut.s_axi_rdata[26] top.chirp_engine_top_tb.dut.s_axi_rdata[25] top.chirp_engine_top_tb.dut.s_axi_rdata[24] top.chirp_engine_top_tb.dut.s_axi_rdata[23] top.chirp_engine_top_tb.dut.s_axi_rdata[22] top.chirp_engine_top_tb.dut.s_axi_rdata[21] top.chirp_engine_top_tb.dut.s_axi_rdata[20] top.chirp_engine_top_tb.dut.s_axi_rdata[19] top.chirp_engine_top_tb.dut.s_axi_rdata[18] top.chirp_engine_top_tb.dut.s_axi_rdata[17] top.chirp_engine_top_tb.dut.s_axi_rdata[16] top.chirp_engine_top_tb.dut.s_axi_rdata[15] top.chirp_engine_top_tb.dut.s_axi_rdata[14] top.chirp_engine_top_tb.dut.s_axi_rdata[13] top.chirp_engine_top_tb.dut.s_axi_rdata[12] top.chirp_engine_top_tb.dut.s_axi_rdata[11] top.chirp_engine_top_tb.dut.s_axi_rdata[10] top.chirp_engine_top_tb.dut.s_axi_rdata[9] top.chirp_engine_top_tb.dut.s_axi_rdata[8] top.chirp_engine_top_tb.dut.s_axi_rdata[7] top.chirp_engine_top_tb.dut.s_axi_rdata[6] top.chirp_engine_top_tb.dut.s_axi_rdata[5] top.chirp_engine_top_tb.dut.s_axi_rdata[4] top.chirp_engine_top_tb.dut.s_axi_rdata[3] top.chirp_engine_top_tb.dut.s_axi_rdata[2] top.chirp_engine_top_tb.dut.s_axi_rdata[1] top.chirp_engine_top_tb.dut.s_axi_rdata[0]
+@23
+#{top.chirp_engine_top_tb.dut.s_axi_araddr[4:0]} top.chirp_engine_top_tb.dut.s_axi_araddr[4] top.chirp_engine_top_tb.dut.s_axi_araddr[3] top.chirp_engine_top_tb.dut.s_axi_araddr[2] top.chirp_engine_top_tb.dut.s_axi_araddr[1] top.chirp_engine_top_tb.dut.s_axi_araddr[0]
+[pattern_trace] 1
+[pattern_trace] 0

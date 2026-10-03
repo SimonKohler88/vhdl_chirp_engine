@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Sep 30 05:45:06 2026
+[*]
+[dumpfile] "D:\Documents\Projekte\chirp_engine\func.vcd"
+[dumpfile_mtime] "Wed Sep 30 05:42:31 2026"
+[dumpfile_size] 1428755
+[savefile] "D:\Documents\Projekte\chirp_engine\wave_save_vcd.gtkw"
+[timestart] 0
+[size] 1582 819
+[pos] -1 -1
+*-8.000000 764 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] chirp_engine_tb.
+[sst_width] 197
+[signals_width] 186
+[sst_expanded] 1
+[sst_vpaned_height] 230
+@28
+chirp_engine_tb.dut.clk
+@8420
+chirp_engine_tb.dut.dout[15:0]
+@28
+chirp_engine_tb.dut.start_pulse
+@8023
+chirp_engine_tb.dut.phase_acc[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,24 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Sep 30 18:35:56 2026
+[*]
+[dumpfile] "D:\Documents\Projekte\chirp_engine\axi_lite\func.vcd"
+[dumpfile_mtime] "Wed Sep 30 18:35:10 2026"
+[dumpfile_size] 504845
+[savefile] "D:\Documents\Projekte\chirp_engine\axi_lite\wave_save_vcd.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-11.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] axi_lite_top_tb.
+[sst_width] 197
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@29
+axi_lite_top_tb.dut.s_axi_aclk
+@28
+axi_lite_top_tb.dut.do_chirp
+axi_lite_top_tb.dut.chirp_finished
+[pattern_trace] 1
+[pattern_trace] 0

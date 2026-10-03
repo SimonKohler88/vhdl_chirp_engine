@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Sep 30 05:30:33 2026
+[*]
+[dumpfile] "D:\Documents\Projekte\chirp_engine\func.ghw"
+[dumpfile_mtime] "Wed Sep 30 05:30:27 2026"
+[dumpfile_size] 432024
+[savefile] "D:\Documents\Projekte\chirp_engine\wave_save.gtkw"
+[timestart] 0
+[size] 1329 781
+[pos] -1 -1
+*-13.000000 3159 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.chirp_engine_tb.
+[treeopen] top.chirp_engine_tb.dut.
+[sst_width] 304
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 337
+@28
+top.chirp_engine_tb.clk
+top.chirp_engine_tb.rst
+@10420
+#{top.chirp_engine_tb.dout[15:0]} top.chirp_engine_tb.dout[15] top.chirp_engine_tb.dout[14] top.chirp_engine_tb.dout[13] top.chirp_engine_tb.dout[12] top.chirp_engine_tb.dout[11] top.chirp_engine_tb.dout[10] top.chirp_engine_tb.dout[9] top.chirp_engine_tb.dout[8] top.chirp_engine_tb.dout[7] top.chirp_engine_tb.dout[6] top.chirp_engine_tb.dout[5] top.chirp_engine_tb.dout[4] top.chirp_engine_tb.dout[3] top.chirp_engine_tb.dout[2] top.chirp_engine_tb.dout[1] top.chirp_engine_tb.dout[0]
+@8023
+#{top.chirp_engine_tb.dut.freq_acc[15:0]} top.chirp_engine_tb.dut.freq_acc[15] top.chirp_engine_tb.dut.freq_acc[14] top.chirp_engine_tb.dut.freq_acc[13] top.chirp_engine_tb.dut.freq_acc[12] top.chirp_engine_tb.dut.freq_acc[11] top.chirp_engine_tb.dut.freq_acc[10] top.chirp_engine_tb.dut.freq_acc[9] top.chirp_engine_tb.dut.freq_acc[8] top.chirp_engine_tb.dut.freq_acc[7] top.chirp_engine_tb.dut.freq_acc[6] top.chirp_engine_tb.dut.freq_acc[5] top.chirp_engine_tb.dut.freq_acc[4] top.chirp_engine_tb.dut.freq_acc[3] top.chirp_engine_tb.dut.freq_acc[2] top.chirp_engine_tb.dut.freq_acc[1] top.chirp_engine_tb.dut.freq_acc[0]
+@8022
+#{top.chirp_engine_tb.dut.phase_acc[15:0]} top.chirp_engine_tb.dut.phase_acc[15] top.chirp_engine_tb.dut.phase_acc[14] top.chirp_engine_tb.dut.phase_acc[13] top.chirp_engine_tb.dut.phase_acc[12] top.chirp_engine_tb.dut.phase_acc[11] top.chirp_engine_tb.dut.phase_acc[10] top.chirp_engine_tb.dut.phase_acc[9] top.chirp_engine_tb.dut.phase_acc[8] top.chirp_engine_tb.dut.phase_acc[7] top.chirp_engine_tb.dut.phase_acc[6] top.chirp_engine_tb.dut.phase_acc[5] top.chirp_engine_tb.dut.phase_acc[4] top.chirp_engine_tb.dut.phase_acc[3] top.chirp_engine_tb.dut.phase_acc[2] top.chirp_engine_tb.dut.phase_acc[1] top.chirp_engine_tb.dut.phase_acc[0]
+@420
+top.chirp_engine_tb.dut.fsm_state
+@28
+top.chirp_engine_tb.dut.chirp_finished
+top.chirp_engine_tb.dut.ready
+top.chirp_engine_tb.do_chirp
+[pattern_trace] 1
+[pattern_trace] 0
