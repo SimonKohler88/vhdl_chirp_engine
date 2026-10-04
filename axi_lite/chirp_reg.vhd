@@ -107,8 +107,8 @@ begin
                 0      => ready,
                 1      => chirp_finished,
                 2      => reg_do_chirp,
-                3      => repeat_chirp,
-                4      => enable_chirp_module,
+                3      => reg_repeat_chirp,
+                4      => reg_enable_chirp_module,
                 others => '0');
 
             when others => rd_data <= (others => '0');
