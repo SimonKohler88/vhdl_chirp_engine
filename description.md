@@ -35,20 +35,18 @@ Other files include .gtkw files (savefiles of the Viewer) and .cf Files (ghdl wo
 
 Base Address: 0x60000000
 
-Offset Name R/W Function
-0x00 Start Frequency R+W Frequency where the Chirp is starting from
-0x04 Stop Frequency R+W Frequency where the Chirp ending
-0x08 Frequency Step Up R+W slope of the frequency rise
-0x0C Frequency Step Down R+W slope of the frequency fall
-0x10 Do Chirp W initiates a chirp on rising edge
-0x14 Repeat Chirp W repeats the chirp until set to 0
-0x18 Enable Chirp Module W redirects the chirp output to DAC.
-0x1C Status R Bit Function
-0 chirp module ready
-1 chirp finished pulse
-2 do chirp loopback
-3 repeat chirp loopback
-4 enable module loopback
+| Offset | Name | R/W | Function |
+|--------|------|-----|----------|
+| 0x00 | Start Frequency | R+W | Frequency where the Chirp is starting from |
+| 0x04 | Stop Frequency | R+W | Frequency where the Chirp ending |
+| 0x08 | Frequency Step Up | R+W | Slope of the frequency rise |
+| 0x0C | Frequency Step Down | R+W | Slope of the frequency fall |
+| 0x10 | Do Chirp | W | Initiates a chirp on rising edge |
+| 0x14 | Repeat Chirp | W | Repeats the chirp until set to 0 |
+| 0x18 | Enable Chirp Module | W | Redirects the chirp output to DAC |
+| 0x1C | Status | R | **Bit — Function**<br>0 — Chirp module ready<br>1 — Chirp finished pulse<br>2 — Do chirp loopback<br>3 — Repeat chirp loopback<br>4 — Enable module loopback |
+
+
 
 ## Python
 
