@@ -67,8 +67,6 @@ begin
                 reg_freq_step_down <= (others => '0');
                 reg_do_chirp       <= '0';
             else
-                reg_do_chirp <= '0'; -- auto-clear
-
                 if wr_en = '1' then
                     case wr_addr is
                         when 16#00# => reg_start_freq            <= wr_data(15 downto 0);

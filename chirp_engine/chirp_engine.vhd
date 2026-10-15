@@ -21,49 +21,47 @@ use work.sine_table_pkg.all;
 --         c. loop threshold = threshold + df
 -- 3. on freqchange, use SAR approach to figure out the new freqstep
 
+-- TODO: further improvement:
+-- make SIN_LUT only reflect 1/4 of sinewave (but 1024 Values as well) --> higher resolution --done
+-- always start chirp at the beginning of the phase --done
 
 entity chirp_engine is
-    generic(
-        G_PHASE_WIDTH: integer := PHASE_WIDTH;
-        G_AMP_WIDTH  : integer := AMP_WIDTH
-    );
     port(
         clk           : in std_logic;
         rst           : in std_logic;
         do_chirp      : in std_logic;
-        start_freq    : in unsigned(G_PHASE_WIDTH - 1 downto 0);
-        stop_freq     : in unsigned(G_PHASE_WIDTH - 1 downto 0);
-        freq_step     : in unsigned(G_PHASE_WIDTH - 1 downto 0);
-        freq_step_down: in unsigned(G_PHASE_WIDTH - 1 downto 0);
+        start_freq    : in unsigned(C_FREQ_WIDTH - 1 downto 0);
+        stop_freq     : in unsigned(C_FREQ_WIDTH - 1 downto 0);
+        freq_step     : in unsigned(C_FREQ_WIDTH - 1 downto 0);
+        freq_step_down: in unsigned(C_FREQ_WIDTH - 1 downto 0);
         repeat        : in std_logic;
         chirp_finished: out std_logic;
         ready         : out std_logic;
-        dout          : out signed(G_AMP_WIDTH - 1 downto 0)
+        dout          : out signed(C_AMP_WIDTH - 1 downto 0)
     );
 end entity;
 
 architecture rtl of chirp_engine is
 
-    signal phase_acc: unsigned(G_PHASE_WIDTH - 1 downto 0) := (others => '0');
-    signal freq_acc: unsigned(G_PHASE_WIDTH - 1 downto 0):= (others => '0');
+    signal phase_acc: unsigned(C_PHASE_WIDTH - 1 downto 0) := (others => '0');
+    signal freq_acc: unsigned(C_FREQ_WIDTH - 1 downto 0):= (others => '0');
 
     signal s_rst: std_logic;
-    signal lut_addr: integer range 0 to ADDR_RANGE - 1;
+    signal lut_addr: integer range 0 to C_ADDR_RANGE - 1;
 
     signal start_pulse_ff: std_logic_vector(1 downto 0);
     signal start_pulse: std_logic;
-
 
     type state_t is (idle_st, rampup_st, rampdown_st);
     signal fsm_state: state_t;
     signal fsm_next_state: state_t;
 
-    signal tst: integer:=ADDR_RANGE;
-
-
     -- 0: low freq --> high freq; 1: high freq --> low freq
     signal direction: std_logic;
 
+    signal phase_acc_lut_addr_temp: unsigned(C_ADDR_WIDTH - 1 downto 0);
+    signal phase_quadrant: unsigned(1 downto 0);
+    signal dout_temp: signed(C_AMP_WIDTH - 1 downto 0);
 begin
     s_rst <= rst;
 
@@ -71,12 +69,20 @@ begin
     begin
         if s_rst then
             start_pulse_ff <= (others => '0');
+            start_pulse <= '0';
         elsif rising_edge(clk) then
-            start_pulse_ff <= start_pulse_ff(1) & do_chirp;
+            start_pulse_ff <= start_pulse_ff(0) & do_chirp;
+
+
+            if start_pulse_ff = "01" then
+                start_pulse <= '1';
+            elsif fsm_state /= idle_st then
+                start_pulse <= '0';
+            end if;
+
         end if;
     end process;
 
-    start_pulse <= '1' when start_pulse_ff = "01" else '0';
     ready <= '1' when fsm_state = idle_st else '0';
 
     p_fsm_seq: process(clk, s_rst)
@@ -86,8 +92,6 @@ begin
             direction <= '0';
             phase_acc <= (others => '0');
             freq_acc <= start_freq;
-
-
 
         elsif rising_edge(clk) then
             fsm_state <= fsm_next_state;
@@ -116,12 +120,6 @@ begin
             if fsm_state = idle_st and fsm_next_state /= idle_st then
                 direction <= '1' when start_freq >= stop_freq else '0';
             end if;
-            -- if fsm_state /= fsm_next_state then
-            --     case fsm_state is
-            --         when idle_st =>
-            --         when others =>
-            --     end case;
-            -- end if;
         end if;
     end process;
 
@@ -130,14 +128,14 @@ begin
         fsm_next_state <= fsm_state;
         case fsm_state is
             when idle_st =>
-                if start_pulse = '1' then
+                if start_pulse = '1' and phase_acc <= freq_acc then
                     fsm_next_state <= rampup_st;
                 end if;
                 chirp_finished <= '0';
 
             when rampup_st =>
                 if (((freq_acc >= stop_freq) and direction = '0') or
-                    ((freq_acc <= stop_freq) and direction = '1')) then
+                        ((freq_acc <= stop_freq) and direction = '1')) then
                     fsm_next_state <= rampdown_st;
                     chirp_finished <= '1';
                 else
@@ -146,7 +144,7 @@ begin
 
             when rampdown_st =>
                 if (((freq_acc >= start_freq) and direction = '1') or
-                    ((freq_acc <= start_freq) and direction = '0')) then
+                        ((freq_acc <= start_freq) and direction = '0')) then
                     if repeat = '0' then
                         fsm_next_state <= idle_st;
                     else
@@ -162,9 +160,26 @@ begin
         end case;
     end process;
 
+    -- determine Quadrant of current Period by readyng the 2 MSB of phase accumulator
+    phase_quadrant(1 downto 0) <= phase_acc(C_PHASE_WIDTH - 1 downto C_PHASE_WIDTH - 2);
 
-    lut_addr <= to_integer(phase_acc(G_PHASE_WIDTH - 1 downto G_PHASE_WIDTH - (ADDR_WIDTH)));
+    -- next ADDR_WIDTH bits are the address in the Quadrant
+    phase_acc_lut_addr_temp(C_ADDR_WIDTH - 1 downto 0) <= phase_acc(C_PHASE_WIDTH - 3 downto C_PHASE_WIDTH - 2 - C_ADDR_WIDTH);
 
-    dout <= SIN_LUT(lut_addr);
+
+    -- revert address for Quadranr 2 and 4
+    lut_addr <= to_integer(phase_acc_lut_addr_temp) WHEN (phase_quadrant = "00") ELSE
+        to_integer(not phase_acc_lut_addr_temp) WHEN (phase_quadrant = "01") ELSE
+        to_integer(phase_acc_lut_addr_temp) WHEN (phase_quadrant = "10") ELSE
+        to_integer(not phase_acc_lut_addr_temp) WHEN (phase_quadrant = "11") ELSE
+        to_integer(phase_acc_lut_addr_temp);
+
+    -- sign change of output for Quadrant 3 and 4
+    dout_temp <= SIN_LUT_Q(lut_addr);
+    dout <= dout_temp WHEN (phase_quadrant = "00") ELSE
+        dout_temp WHEN (phase_quadrant = "01") ELSE
+        signed('1' & not dout_temp(C_AMP_WIDTH - 2 downto 0)) WHEN (phase_quadrant = "10") ELSE
+        signed('1' & not dout_temp(C_AMP_WIDTH - 2 downto 0)) WHEN (phase_quadrant = "11") ELSE
+        dout_temp;
 
 end rtl;

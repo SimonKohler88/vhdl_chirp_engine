@@ -12,18 +12,15 @@ architecture sim of chirp_engine_tb is
 
     constant CLK_PERIOD: time := 8 ns; -- 125 MHz
 
-    -- constant PHASE_WIDTH : integer := 16;
-    -- constant AMP_WIDTH : integer := 14;
-
     signal clk: std_logic := '0';
     signal rst: std_logic := '1';
 
-    signal start_freq: unsigned(PHASE_WIDTH - 1 downto 0);
-    signal stop_freq: unsigned(PHASE_WIDTH - 1 downto 0);
-    signal freq_step: unsigned(PHASE_WIDTH - 1 downto 0);
-    signal freq_step_down: unsigned(PHASE_WIDTH - 1 downto 0);
+    signal start_freq: unsigned(C_FREQ_WIDTH - 1 downto 0);
+    signal stop_freq: unsigned(C_FREQ_WIDTH - 1 downto 0);
+    signal freq_step: unsigned(C_FREQ_WIDTH - 1 downto 0);
+    signal freq_step_down: unsigned(C_FREQ_WIDTH - 1 downto 0);
 
-    signal dout: signed(AMP_WIDTH - 1 downto 0);
+    signal dout: signed(C_AMP_WIDTH - 1 downto 0);
     signal do_chirp: std_logic;
     signal ready: std_logic;
     signal repeat: std_logic;
@@ -34,10 +31,6 @@ begin
     -- DUT
     ------------------------------------------------------------------
     DUT: entity work.chirp_engine
-        generic map(
-            G_PHASE_WIDTH => PHASE_WIDTH,
-            G_AMP_WIDTH   => AMP_WIDTH
-        )
         port map(
             clk            => clk,
             rst            => rst,
@@ -68,11 +61,11 @@ begin
         -- Start at FCW = 1000
         -- Increase by 10 every clock
         ----------------------------------------------------------------
-        start_freq <= to_unsigned(1000, PHASE_WIDTH);
-        stop_freq  <= to_unsigned(6000, PHASE_WIDTH);
+        start_freq <= to_unsigned(1000, C_FREQ_WIDTH);
+        stop_freq  <= to_unsigned(6000, C_FREQ_WIDTH);
 
-        freq_step <= to_unsigned(10, PHASE_WIDTH);
-        freq_step_down <= to_unsigned(100, PHASE_WIDTH);
+        freq_step <= to_unsigned(10, C_FREQ_WIDTH);
+        freq_step_down <= to_unsigned(100, C_FREQ_WIDTH);
         do_chirp <= '0';
 
         repeat <= '0';
@@ -97,7 +90,7 @@ begin
         wait for 200 ns;
         wait until ready = '1';
         wait for 100 ns;
-        freq_step <= to_unsigned(1, PHASE_WIDTH);
+        freq_step <= to_unsigned(1, C_FREQ_WIDTH);
 
         do_chirp <= '1';
         wait for 20 ns;
@@ -106,14 +99,32 @@ begin
         wait until ready = '1';
         wait for 100 ns;
 
-        start_freq <= to_unsigned(2000, PHASE_WIDTH);
-        freq_step <= to_unsigned(100, PHASE_WIDTH);
-        stop_freq  <= to_unsigned(10000, PHASE_WIDTH);
+        start_freq <= to_unsigned(2000, C_FREQ_WIDTH);
+        freq_step <= to_unsigned(100, C_FREQ_WIDTH);
+        stop_freq  <= to_unsigned(10000, C_FREQ_WIDTH);
 
 
         do_chirp <= '1';
         wait for 20 ns;
         do_chirp <= '0';
+        wait for 200 ns;
+        wait until ready = '1';
+        wait for 100 ns;
+
+
+        start_freq <= to_unsigned(10000, C_FREQ_WIDTH);
+        freq_step <= to_unsigned(100, C_FREQ_WIDTH);
+        stop_freq  <= to_unsigned(2000, C_FREQ_WIDTH);
+
+        do_chirp <= '1';
+        wait for 20 ns;
+        do_chirp <= '0';
+
+        wait for 200 ns;
+        wait until ready = '1';
+        wait for 100 ns;
+
+        wait for 10 us;
         report "Simulation finished";
 
         wait;
